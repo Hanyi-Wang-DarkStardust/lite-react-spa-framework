@@ -1,0 +1,32 @@
+{
+  "name": "@lite-react-spa/startup",
+  "version": "0.0.1",
+  "description": "A lite weight startup service for React SPA",
+  "main": "dist/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf lib dist",
+    "clean-all": "rimraf lib dist node_modules",
+    "build": "rollup -c && tsc -p tsconfig.json",
+    "prebuild": "rm -rf dist lib",
+    "lint": "eslint src --ext \".ts,.tsx\"",
+    "lint:fix": "eslint src --fix --ext \".ts,.tsx\""
+  },
+  "files": [
+    "lib/",
+    "src",
+    "dist"
+  ],
+  "sideEffects": false,
+  "author": "Hanyi Wang",
+  "license": "MIT",
+  "dependencies": {
+    "history": "^5.3.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || 17.x",
+    "react-dom": "^16.8.0 || 17.x"
+  }
+}

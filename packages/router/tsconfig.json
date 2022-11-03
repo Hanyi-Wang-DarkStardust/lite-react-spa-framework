@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "paths": {
+      "@router/*": ["./src/*"]
+    },
+    "module": "ES6",
+    "sourceMap": false,
+    "inlineSources": false,
+    "outDir": "./lib"
+  },
+  "include": ["src"]
+}

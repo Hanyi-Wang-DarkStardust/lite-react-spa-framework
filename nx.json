@@ -1,0 +1,41 @@
+{
+  "extends": "@nrwl/workspace/presets/npm.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build"],
+        "parallel": 8
+      }
+    }
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "babel.config.js": "*"
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ],
+    "clean": [
+      {
+        "target": "clean",
+        "projects": "dependencies"
+      }
+    ],
+    "clean-all": [
+      {
+        "target": "clean-all",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "targetDefaults": {},
+  "defaultBase": "main"
+}
