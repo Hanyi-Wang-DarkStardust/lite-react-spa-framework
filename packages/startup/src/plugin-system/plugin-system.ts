@@ -3,7 +3,7 @@ import {
   DATA_LIFE_CYCLES, isValidLifeCycle, isValidPlugin, LIFE_CYCLE_CANDIDATES,
 } from '@startup/common/lifecycle-utils';
 import { IStartupService } from '@startup/startup-service/startup-service.interface';
-import { EAppLifeCycle } from '@startup/common/enum';
+import type { EAppLifeCycle } from '@startup/common/enum';
 import { IPlugin } from './plugins.interface';
 
 /**

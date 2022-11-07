@@ -44,11 +44,6 @@ export class StartupService implements IStartupService {
   }
 
   public async start(containerID?: string) {
-    // 合法性检查
-    if (!this.element) {
-      throw new TypeError('Cannot found Routes Component, please execute registerRoutes() first.');
-    }
-
     const { pluginSystem } = this;
     // 执行 Bootstrap 生命周期
     await pluginSystem.applyLifecycle(EAppLifeCycle.Bootstrap);
@@ -61,6 +56,11 @@ export class StartupService implements IStartupService {
       } else {
         this.initDataFetch(executor);
       }
+    }
+    
+    // 合法性检查
+    if (!this.element) {
+      throw new TypeError('Cannot found Routes Component, please execute registerRoutes() first.');
     }
 
     // 如果没有传入 DOM 节点 ID，直接返回封装后的组件
