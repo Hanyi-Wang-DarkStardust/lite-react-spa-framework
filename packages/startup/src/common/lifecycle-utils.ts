@@ -1,5 +1,5 @@
 import { isFunction } from '@startup/common/utils';
-import { EAppLifeCycle } from '../plugin-system/lifecycle.interface';
+import { EAppLifeCycle } from '@startup/common/enum';
 import { IPlugin } from '../plugin-system/plugins.interface';
 
 /**

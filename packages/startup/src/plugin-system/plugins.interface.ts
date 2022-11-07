@@ -1,5 +1,5 @@
-import { IStartupService } from '../startup-service/startup-service.interface';
-import { EAppLifeCycle } from './lifecycle.interface';
+import { IStartupService } from '@startup/startup-service/startup-service.interface';
+import { EAppLifeCycle } from '@startup/common/enum';
 
 export type PluginExecParam<T extends Record<string, unknown> = any> = {
   /**

@@ -50,7 +50,7 @@
 import {
   createStartupService,
   EAppLifeCycle,
-  EDataFetcherExecType,
+  EInitializerType,
 } from "@lite-react-spa/startup";
 // 上报方法
 import { logger } from "./logger";
@@ -58,23 +58,24 @@ import { logger } from "./logger";
 import { routeComponent } from "./routes";
 
 // 创建启动服务实例
-const app = createStartupService({
-  // Service Data Fetcher 服务
-  dataFetcher: {
-    fetchType: EDataFetcherExecType.Immediate,
-    serviceDataFetcher: async () => {
-      // Option 1: 从服务端通过 CGI 获取数据
-      const { data, error } = await getDataFromCgi(); // CGI 获取服务端数据
-
-      // Option 2: 从直出数据获取
-      // const data = window.basicClientVars;
-      // const error = data ?? new Error('no basicClientVars');
-      return { data, error };
-    },
-  },
-});
+const app = createStartupService();
 
 app
+  // 注册初始化数据获取函数
+  .useInitializer(
+    {
+      initType: EInitializerType.Immediate,
+      executor: async () => {
+        // Option 1: 从服务端通过 CGI 获取数据
+        const { data, error } = await getDataFromCgi(); // CGI 获取服务端数据
+
+        // Option 2: 从直出数据获取
+        // const data = window.basicClientVars;
+        // const error = data ?? new Error('no basicClientVars');
+        return { data, error };
+      }
+    }
+  )
   // 注册插件
   .use(
     {

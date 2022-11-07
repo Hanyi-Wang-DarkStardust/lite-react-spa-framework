@@ -25,6 +25,8 @@ function createStartupServiceAndExecuteSetup(createOptions: CreateOptions = {}) 
  * @returns startupService 实例
  */
 export function createStartupService(createOptions: CreateOptions = {}, singleton = false) {
+  createOptions = createOptions || {};
+
   if (!singleton) {
     return createStartupServiceAndExecuteSetup(createOptions);
   }

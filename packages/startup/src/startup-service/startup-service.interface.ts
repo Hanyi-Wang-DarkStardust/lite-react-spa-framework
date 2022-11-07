@@ -1,37 +1,22 @@
-import type { History } from 'history';
 import { IPlugin } from '../plugin-system/plugins.interface';
-import { IAppDataFetcher } from './data-fetch-service.interface';
-
-/**
- * Startup Service 实例化参数
- */
-export type StartupConfig = {
-  /**
-   * 【可选】获取数据的服务
-   * 为数据获取生命周期提供数据支持。将先通过 dataFetcher 获取数据，后提供给数据获取生命周期执行
-   */
-  dataFetcher?: IAppDataFetcher;
-
-  /**
-   * 【可选】需要注册并暴露给全局的 history 对象
-   */
-  history?: History;
-};
+import { IInitializer } from './initializer.interface';
 
 /**
  * Startup Service 实例接口
  */
 export interface IStartupService {
   /**
-   * APP 内部储存的挂载组件，可以被插件修改
-   */
-  element: JSX.Element | null;
-
-  /**
    * 注册自定义插件
    * @param plugin 自定义插件，可读写插件 storage 系统
    */
-  use(...plugins: Array<IPlugin>): this
+  use(...plugins: Array<IPlugin>): this;
+
+  /**
+   * 注册项目启动时期的数据获取方法。
+   * 通常在此处传入用于网络请求获取应用需要加载的首屏数据
+   * @param initializerArray 自定义 initializer
+   */
+  useInitializer(...initializerArray: Array<IInitializer>): this;
 
   /**
    * 注册自定义 React 组件

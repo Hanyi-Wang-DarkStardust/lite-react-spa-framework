@@ -1,9 +1,9 @@
 import { checkParameters } from '@startup/common/decorators';
 import {
   DATA_LIFE_CYCLES, isValidLifeCycle, isValidPlugin, LIFE_CYCLE_CANDIDATES,
-} from '../common/lifecycle-utils';
-import { IStartupService } from '../startup-service/startup-service.interface';
-import { EAppLifeCycle } from './lifecycle.interface';
+} from '@startup/common/lifecycle-utils';
+import { IStartupService } from '@startup/startup-service/startup-service.interface';
+import { EAppLifeCycle } from '@startup/common/enum';
 import { IPlugin } from './plugins.interface';
 
 /**
