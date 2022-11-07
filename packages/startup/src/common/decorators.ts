@@ -3,7 +3,7 @@
  * @param rules 判断是否满足条件的判断函数，对应每一个函数传入参数。null 或不传表示不校验
  */
 export function checkParameters(...rules: Array<((arg: any) => boolean) | null>) {
-  return function (target: any, name: string, descriptor: PropertyDescriptor) {
+  return function (_target: any, name: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
 
     // eslint-disable-next-line no-param-reassign

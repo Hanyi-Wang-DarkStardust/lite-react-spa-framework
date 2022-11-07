@@ -10,12 +10,12 @@ const SERVICE_MEM_CACHE = new Map<string, IStartupService>();
  * 同时执行自定义 setupApp 逻辑
  */
 function createStartupServiceAndExecuteSetup(createOptions: CreateOptions = {}) {
-  const { setupApp, ...startupConfig } = createOptions;
-  const startupApp = new StartupService(startupConfig);
+  const { setupApp } = createOptions;
+  const instance = new StartupService();
 
-  setupApp?.(startupApp);
+  setupApp?.(instance);
 
-  return startupApp;
+  return instance;
 }
 
 /**
