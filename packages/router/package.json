@@ -9,7 +9,7 @@
     "test": "jest",
     "clean": "rimraf lib dist",
     "clean-all": "rimraf lib dist node_modules",
-    "build": "rollup -c && tsc -p tsconfig.json",
+    "build": "rollup -c && tsc -p tsconfig.json && tsc-alias",
     "prebuild": "rm -rf dist lib",
     "lint": "eslint src --ext \".ts,.tsx\"",
     "lint:fix": "eslint src --fix --ext \".ts,.tsx\""
