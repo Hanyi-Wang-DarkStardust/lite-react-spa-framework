@@ -1,5 +1,5 @@
 {
-  "name": "@lite-react-spa/startup",
+  "name": "lite-react-spa-startup",
   "version": "0.0.1",
   "description": "A lite weight startup service for React SPA",
   "main": "dist/index.js",
